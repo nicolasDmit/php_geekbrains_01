@@ -4,7 +4,9 @@ require '../config/config.php';
 if ($dir = opendir(UPLOAD_DIR)) {
     while ($file = readdir($dir)) {
         if (!is_dir($file)) {
-            echo "<img src=\"" . ((string)PUBLIC_DIR . (string)$file) . "\">";
+            $path = PUBLIC_DIR;
+            echo "$path <br>";
+//            echo "<img width=300px src=\"" . $path . "\">";
         }
     }
 
