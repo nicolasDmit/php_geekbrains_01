@@ -1,12 +1,14 @@
 <?php
 require '../config/config.php';
-
 if ($dir = opendir(UPLOAD_DIR)) {
     while ($file = readdir($dir)) {
         if (!is_dir($file)) {
-            $path = PUBLIC_DIR;
-            echo "$path <br>";
-//            echo "<img width=300px src=\"" . $path . "\">";
+            $path = explode('/', UPLOAD_DIR . $file);
+            $path = implode("\ ", $path);
+            $path = explode(" ", $path);
+            $path = implode("", $path);
+            echo "$path";
+            echo "<img src=\"$path\"><br>";
         }
     }
 
@@ -21,7 +23,15 @@ if ($_FILES) {
 }
 ?>
 
-<form action="" enctype="multipart/form-data" method="post">
-    <input type="file" name="upload_file">
-    <input type="submit" value="���������!">
-</form>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Галерея Каритинок</title>
+    </head>
+    <body>
+    <form action="" enctype="multipart/form-data" method="post">
+        <input type="file" name="upload_file">
+        <input type="submit" value="Отправить!">
+    </form>
+    </body>
+</html>
