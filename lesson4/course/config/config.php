@@ -21,6 +21,10 @@ if (!defined("UPLOAD_DIR")) {
 }
 
 if(!defined("DEFULT_IMG")) {
-    define("DEFULT_IMG", ROOT_DIR . "/img/");
+    define("DEFULT_IMG", PUBLIC_DIR . "/img/");
+}
+
+if(!defined("HTML_IMG")) {
+    define("HTML_IMG", "/img/");
 }
 
